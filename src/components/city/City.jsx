@@ -19,6 +19,8 @@ function City() {
 
   const { cityName, emoji, date, notes } = currentCity;
 
+  if (true) return <h1>City</h1>;
+
   return (
     <div className={styles.city}>
       <div className={styles.row}>

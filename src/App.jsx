@@ -8,6 +8,7 @@ import AppLayout from "./pages/AppLayout";
 import CityList from "./components/city/CityList";
 import { useEffect, useState } from "react";
 import CountryList from "./components/country/CountryList";
+import City from "./components/city/City";
 
 const data = [
   {
@@ -35,6 +36,18 @@ const data = [
     id: 17806751,
   },
   {
+    cityName: "Barselona",
+    country: "Spain",
+    emoji: "🇪🇸",
+    date: "2027-07-15T08:22:53.976Z",
+    notes: "",
+    position: {
+      lat: 40.46635901755316,
+      lng: -3.7133789062500004,
+    },
+    id: 17806751,
+  },
+  {
     cityName: "Berlin",
     country: "Germany",
     emoji: "🇩🇪",
@@ -45,6 +58,18 @@ const data = [
       lng: 13.376933665713324,
     },
     id: 98443197,
+  },
+  {
+    cityName: "Munih",
+    country: "Germany",
+    emoji: "🇩🇪",
+    date: "2027-02-12T09:24:11.863Z",
+    notes: "Amazing 😃",
+    position: {
+      lat: 52.53586782505711,
+      lng: 13.376933665713324,
+    },
+    id: 98443,
   },
 ];
 
@@ -75,6 +100,10 @@ function App() {
           <Route
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
+          />
+          <Route
+            path="cities/:id"
+            element={<City cities={cities} isLoading={isLoading} />}
           />
           <Route
             path="countries"
