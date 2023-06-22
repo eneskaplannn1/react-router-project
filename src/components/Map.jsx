@@ -11,27 +11,42 @@ import {
 import { useEffect, useState } from "react";
 import { useCities } from "../context/CitiesContext";
 import { latLng } from "leaflet";
+import { useGeolocation } from "../hooks/useGeolocation";
+import Button from "../utilits/Button";
 
 function Map() {
-  const navigate = useNavigate();
   const { cities } = useCities();
+  const {
+    isLoading: isLoadingPosition,
+    position: geoLocationPosition,
+    getPosition,
+  } = useGeolocation();
 
-  const [position, setPosition] = useState([51.505, -0.09]);
-  const [searchParams, setSearchParams] = useSearchParams();
-
+  const [mapPosition, setMapPosition] = useState([40, 0]);
+  
+  const [searchParams] = useSearchParams();
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
 
   useEffect(() => {
     if (lat && lng) {
-      setPosition([lat, lng]);
+      setMapPosition([lat, lng]);
     }
   }, [lat, lng]);
 
+  useEffect(() => {
+    if (geoLocationPosition) {
+      setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
+    }
+  }, [geoLocationPosition]);
+
   return (
     <div className={classes.mapContainer}>
+      <Button type="position" onClick={getPosition}>
+        {isLoadingPosition ? "Loading.." : "Use Your Position"}
+      </Button>
       <MapContainer
-        center={position}
+        center={mapPosition}
         zoom={7}
         scrollWheelZoom={true}
         className={classes.map}
@@ -51,7 +66,7 @@ function Map() {
           );
         })}
 
-        <ChangeCenter position={position} />
+        <ChangeCenter position={mapPosition} />
         <DetectClick />
       </MapContainer>
     </div>

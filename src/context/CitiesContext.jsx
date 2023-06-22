@@ -6,6 +6,7 @@ function ContextProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [newCity, setNewCity] = useState(0);
   useEffect(() => {
     setIsLoading(true);
     async function Fetch() {
@@ -20,14 +21,27 @@ function ContextProvider({ children }) {
       }
     }
     Fetch();
-  }, []);
+  }, [newCity]);
 
-  
   const [curCity, setCurCity] = useState({});
+
   async function getCity(id) {
     const res = await fetch(`http://localhost:9000/cities/${id}`);
     const data = await res.json();
     setCurCity(data);
+  }
+
+  async function createCity(newCity) {
+    const res = await fetch(`http://localhost:9000/cities`, {
+      method: "POST",
+      body: JSON.stringify(newCity),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    setNewCity((prev) => prev + 1);
+    // const data = await res.json();
+    // setCurCity(data);
   }
 
   return (
@@ -37,6 +51,7 @@ function ContextProvider({ children }) {
         isLoading,
         curCity,
         getCity,
+        createCity,
       }}
     >
       {children}

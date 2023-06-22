@@ -47,6 +47,54 @@
         "lng": "-2.13128394200588"
       },
       "id": 98443198
+    },
+    {
+      "cityName": "Osmaniye",
+      "countryName": "Turkiye",
+      "emoji": "TR",
+      "startDate": "2023-06-22T16:28:52.491Z",
+      "notes": "Nice city",
+      "position": {
+        "lat": "36.95409663800075",
+        "lng": "36.37163074318311"
+      },
+      "id": 98443199
+    },
+    {
+      "cityName": "Istanbul",
+      "countryName": "Turkiye",
+      "emoji": "TR",
+      "startDate": "2023-06-22T16:31:33.297Z",
+      "notes": "Best City",
+      "position": {
+        "lat": "40.97942356963088",
+        "lng": "29.205796797401984"
+      },
+      "id": 98443200
+    },
+    {
+      "cityName": "Delphi Municipality",
+      "countryName": "Greece",
+      "emoji": "GR",
+      "startDate": "2023-06-22T16:37:10.385Z",
+      "notes": "deneme",
+      "position": {
+        "lat": "38.718541321399925",
+        "lng": "22.153979619810197"
+      },
+      "id": 98443201
+    },
+    {
+      "cityName": "Delphi Municipality",
+      "countryName": "Greece",
+      "emoji": "GR",
+      "startDate": "2023-06-22T16:37:23.314Z",
+      "notes": "deneme 2",
+      "position": {
+        "lat": "38.718541321399925",
+        "lng": "22.153979619810197"
+      },
+      "id": 98443202
     }
   ]
 }
