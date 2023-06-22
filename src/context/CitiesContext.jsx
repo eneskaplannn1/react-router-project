@@ -41,6 +41,7 @@ function ContextProvider({ children }) {
   }, [newCity, dispatch]);
 
   async function getCity(id) {
+    if (Number(id) === curCity.id) return;
     dispatch({ type: "loading" });
     const res = await fetch(`http://localhost:9000/cities/${id}`);
     const data = await res.json();

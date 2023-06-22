@@ -1,16 +1,25 @@
-import styles from "./Login.module.css";
+import classes from "./Login.module.css";
 import PageNav from "../components/PageNav";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   // PRE-FILL FOR DEV PURPOSES
-  const [email, setEmail] = useState("jack@example.com");
-  const [password, setPassword] = useState("qwerty");
+  const [email, setEmail] = useState("johndoe@gmail.com");
+  const [password, setPassword] = useState("johndoe");
+
+  console.log(isAuthenticated);
+  useEffect(() => {
+    if (isAuthenticated) navigate("/app");
+  }, [isAuthenticated, navigate]);
 
   return (
-    <main className={styles.login}>
+    <main className={classes.login}>
       <PageNav />
-      <form className={styles.form}>
-        <div className={styles.row}>
+      <form className={classes.form}>
+        <div className={classes.row}>
           <label htmlFor="email">Email address</label>
           <input
             type="email"
@@ -20,7 +29,7 @@ export default function Login() {
           />
         </div>
 
-        <div className={styles.row}>
+        <div className={classes.row}>
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -31,7 +40,15 @@ export default function Login() {
         </div>
 
         <div>
-          <button>Login</button>
+          <button
+            className={classes.btn}
+            onClick={(e) => {
+              e.preventDefault();
+              login(email, password);
+            }}
+          >
+            Login
+          </button>
         </div>
       </form>
     </main>

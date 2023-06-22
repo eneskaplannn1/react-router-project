@@ -1,52 +1,16 @@
 {
   "cities": [
     {
-      "cityName": "Sotorribas",
-      "countryName": "Spain",
-      "emoji": "ES",
-      "date": "2023-06-22T19:19:05.878Z",
-      "notes": "deneme",
-      "position": {
-        "lat": "40.34602370138916",
-        "lng": "-2.208204902529461"
-      },
-      "id": 1
-    },
-    {
-      "cityName": "Dortyol",
+      "cityName": "Osmaniye",
       "countryName": "Turkiye",
       "emoji": "TR",
-      "date": "2023-06-22T19:19:14.853Z",
-      "notes": "Yes sir!",
+      "date": "2023-06-22T21:34:18.304Z",
+      "notes": "its okey!",
       "position": {
-        "lat": "36.84366531817721",
-        "lng": "36.386752577286856"
+        "lat": "37.035438677756595",
+        "lng": "36.351018053241276"
       },
-      "id": 2
-    },
-    {
-      "cityName": "Reaup-Lisse",
-      "countryName": "France",
-      "emoji": "FR",
-      "date": "2023-06-22T19:26:36.118Z",
-      "notes": "deneme",
-      "position": {
-        "lat": "44.07126631519824",
-        "lng": "0.22619772752495493"
-      },
-      "id": 3
-    },
-    {
-      "cityName": "Lleida",
-      "countryName": "Spain",
-      "emoji": "ES",
-      "date": "2023-06-22T19:27:21.326Z",
-      "notes": "hata",
-      "position": {
-        "lat": "41.62337307066555",
-        "lng": "0.5962709953768065"
-      },
-      "id": 4
+      "id": 1
     }
   ]
 }

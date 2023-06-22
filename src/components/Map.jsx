@@ -56,7 +56,10 @@ function Map() {
         />
         {cities.map((city) => {
           return (
-            <Marker position={[city.position.lat, city.position.lng]}>
+            <Marker
+              key={Math.random()}
+              position={[city.position.lat, city.position.lng]}
+            >
               <Popup>
                 <span>{city.emoji}</span>
                 <span>{city.country}</span>
