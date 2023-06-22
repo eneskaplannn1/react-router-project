@@ -11,7 +11,6 @@ function SideBar() {
 
       <footer className={classes.footer}>
         <p className={classes.copyright}>
-          {" "}
           &copy; copyright {new Date().getFullYear()} by Anonim
         </p>
       </footer>
