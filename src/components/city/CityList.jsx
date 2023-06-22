@@ -12,7 +12,7 @@ export default function CityList() {
     return (
       <Message message="No cities had found click the map for adding new city" />
     );
-  // console.log(cities.);
+
   return (
     <ul className={classes.cityList}>
       {cities.map((city) => (
