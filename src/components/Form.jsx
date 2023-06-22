@@ -69,7 +69,7 @@ function Form() {
       cityName,
       countryName,
       emoji,
-      startDate,
+      date: startDate,
       notes,
       position: { lat, lng },
     };

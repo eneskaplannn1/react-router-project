@@ -10,7 +10,6 @@ import {
 } from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCities } from "../context/CitiesContext";
-import { latLng } from "leaflet";
 import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "../utilits/Button";
 
@@ -23,7 +22,7 @@ function Map() {
   } = useGeolocation();
 
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  
+
   const [searchParams] = useSearchParams();
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");

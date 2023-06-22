@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 
 const CitiesContext = createContext();
 
@@ -30,9 +36,16 @@ function ContextProvider({ children }) {
     const data = await res.json();
     setCurCity(data);
   }
+  async function deleteCity(id) {
+    const res = await fetch(`http://localhost:9000/cities/${id}`, {
+      method: "DELETE",
+    });
+    console.log(res);
+    setNewCity((prev) => prev - 1);
+  }
 
   async function createCity(newCity) {
-    const res = await fetch(`http://localhost:9000/cities`, {
+    await fetch(`http://localhost:9000/cities`, {
       method: "POST",
       body: JSON.stringify(newCity),
       headers: {
@@ -40,10 +53,7 @@ function ContextProvider({ children }) {
       },
     });
     setNewCity((prev) => prev + 1);
-    // const data = await res.json();
-    // setCurCity(data);
   }
-
   return (
     <CitiesContext.Provider
       value={{
@@ -52,6 +62,7 @@ function ContextProvider({ children }) {
         curCity,
         getCity,
         createCity,
+        deleteCity,
       }}
     >
       {children}
