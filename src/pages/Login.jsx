@@ -3,6 +3,7 @@ import PageNav from "../components/PageNav";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Button from "../utilits/Button";
 export default function Login() {
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
@@ -10,15 +11,21 @@ export default function Login() {
   const [email, setEmail] = useState("johndoe@gmail.com");
   const [password, setPassword] = useState("johndoe");
 
-  console.log(isAuthenticated);
+  function handleSubmit(e) {
+    if (email && password) {
+      e.preventDefault();
+      login(email, password);
+    }
+  }
+
   useEffect(() => {
-    if (isAuthenticated) navigate("/app");
+    if (isAuthenticated) navigate("/app", { replace: true });
   }, [isAuthenticated, navigate]);
 
   return (
     <main className={classes.login}>
       <PageNav />
-      <form className={classes.form}>
+      <form className={classes.form} onSubmit={handleSubmit}>
         <div className={classes.row}>
           <label htmlFor="email">Email address</label>
           <input
@@ -40,15 +47,7 @@ export default function Login() {
         </div>
 
         <div>
-          <button
-            className={classes.btn}
-            onClick={(e) => {
-              e.preventDefault();
-              login(email, password);
-            }}
-          >
-            Login
-          </button>
+          <Button type="primary">Login</Button>
         </div>
       </form>
     </main>
